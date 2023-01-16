@@ -4,20 +4,16 @@ import adapter.MailProcessor;
 import adapter.gmailclient.Gmail;
 import composite.SubTeam;
 import composite.Team;
+import decorator.CloudStream;
+import decorator.CompressedCloudStream;
+import decorator.EncryptedCloudStream;
 
 public class Main {
     public static void main(String[] args) {
-        var team = new Team();
+        var stream = new CloudStream();
+        var compress = new CompressedCloudStream(stream);
+        var encrypt = new EncryptedCloudStream(compress);
 
-        var subTeam = new SubTeam();
-        var subTeam2 = new SubTeam();
-        team.addSubTeam(subTeam);
-        team.addSubTeam(subTeam2);
-
-        team.deploy();
-
-        var gmailProvider = new GmailAdapter(new Gmail());
-        var mailProcessor = new MailProcessor(new Email());
-        mailProcessor.process(gmailProvider);
+        encrypt.write("skd kdoeihd dsiod");
     }
 }

@@ -1,13 +1,18 @@
 package decorator;
 
-public class EncryptedCloudStream extends CloudStream {
+public class EncryptedCloudStream implements Stream {
+    private final Stream stream;
+
+    public EncryptedCloudStream(Stream stream) {
+        this.stream = stream;
+    }
+
     @Override
     public void write(String data) {
         String eD = encrypt(data);
-        super.write(eD);
+        stream.write(eD);
     }
-
     public String encrypt(String data) {
-        return "Encrypting\nEncrypted Data: 29#(@dji((*32jd&#)ASDFai&*7s";
+        return "Encrypting data\n Data: 29#(@dji((*32jd&#)ASDFai&*7s";
     }
 }
