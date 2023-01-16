@@ -7,6 +7,7 @@ import composite.Team;
 import decorator.CloudStream;
 import decorator.CompressedCloudStream;
 import decorator.EncryptedCloudStream;
+import facade.NotificationService;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,5 +16,8 @@ public class Main {
         var encrypt = new EncryptedCloudStream(compress);
 
         encrypt.write("skd kdoeihd dsiod");
+
+        var notificationService = new NotificationService();
+        notificationService.send("hello", "0.0.0.0");
     }
 }
