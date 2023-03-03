@@ -9,7 +9,7 @@ public class NotificationServer {
         return new Authentication();
     }
 
-    public void sendMeassage(Authentication token, Message msg, String target) {
+    public void sendMessage(Authentication token, Message msg, String target) {
         System.out.println("Message sent.");
     }
 }

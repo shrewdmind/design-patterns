@@ -5,7 +5,7 @@ public class NotificationService {
         var notificationObj = new NotificationServer();
         var conn = notificationObj.connect("1.1.1.1");
         var authToken = notificationObj.authenticate("3iei1", "828Ae92e1!2");
-        notificationObj.sendMeassage(authToken, new Message(msg), target);
+        notificationObj.sendMessage(authToken, new Message(msg), target);
         conn.disconnect();
     }
 }
